@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: lottery-gateway
+
+#端口号
+server:
+  port: 7210

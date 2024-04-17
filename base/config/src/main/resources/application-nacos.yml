@@ -1,0 +1,11 @@
+#nacos
+spring:
+  cloud:
+    nacos:
+#      server-addr: ${lottery.nacos.host}:${lottery.nacos-port}
+      server-addr: ${lottery.cloud-host}:${lottery.nacos-port}
+      discovery:
+        username: nacos
+        password: nacos
+        # loc
+        namespace: ${nacos.namespace}

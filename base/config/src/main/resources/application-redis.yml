@@ -1,0 +1,5 @@
+spring:
+  redis:
+    host: ${lottery.cloud-host}
+    port: ${lottery.redis-port}
+    password: ENC(AdStQLqhD6GVB7yaxxyZQKcdB0ox/PWZltW0PusLL0VT3lgBagfQr/1rt7hzt4n+)

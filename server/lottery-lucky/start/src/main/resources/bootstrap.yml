@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: lottery-lucky
+
+#端口号
+server:
+  port: 7214

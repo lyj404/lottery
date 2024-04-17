@@ -1,0 +1,19 @@
+lottery:
+  host: 127.0.0.1
+  cloud-host: ENC(8LfDQV6N1lobfW1l3RQLVompEpiEK/s51DE4DhBt8IE+2DPFbiv79cxhLJHpVcP2)
+  mysql-port: ENC(gn3Qin3h4XMKIotsAI40elEpmpLuK+CqTdTl0Lv3eHNy8q150Gbj1ZR/EsU1rV3H)
+  nacos-port: ENC(0Ugm2bhP+dkTwIT93ZilfZk8YcB2F+gU4C4io8OolkqhL5DBCEC94t24EW9lLKvI)
+  redis-port: ENC(3BYACfI73xxNj/CmkmdYYTusRUQ+4ozvLXZhiu3huUuyDYaSuOFlKUkGEwQo8AAJ)
+  mq_host: ENC(vyBuzmuADeMv8q95moRKOUEWC5PQeHrCvUKS+qWSl/C2nQ4scW0BW1Kai3hYVa/U)
+  mq_port: ENC(7epHYZlZ5SM85NywUmSdrATDVUiMFm7Ku+onfAfyB4sYtmofSahQab4vqFyraodn)
+#nacos
+nacos:
+  #dev
+  namespace: 79622650-2ad0-4651-945e-82929157836f
+#database
+DB_HOST: ${lottery.host}:${lottery.mysql-port}
+DB_NAME: lottery
+DB_USERNAME: root
+DB_PASSWORD: ENC(yq0CZuLBLsCLBaYinAdCJ0U3JVTykY7bSZlt+LsL8+2WEv6YDPMgLKjoy3Rt+ARl)
+MQ_NAME: ${lottery.mq_host}:${lottery.mq_port}
+MQ_GROUP: lottery

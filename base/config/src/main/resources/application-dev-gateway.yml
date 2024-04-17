@@ -1,0 +1,30 @@
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      default-filters:
+        - name: IpRequestRateLimiter #请求数限流
+          args:
+            key-resolver: "#{@ipKeyResolver}"
+            redis-rate-limiter.replenishRate: 10 #令牌桶恢复速度，即每秒访问个数
+            redis-rate-limiter.burstCapacity: 40 #令牌桶大小，即峰值流量来临是最大可访问数
+      routes:
+        - id: lottery
+          uri: http://127.0.0.1:7214/
+          predicates:
+            - Path=/lottery/**
+          filters:
+            # 1表示过滤一个路径
+            - StripPrefix=1
+
+
+lottery.gateway:
+  ignoreUrlSet:
+    - /v1/user/login
+    - /v1/user/register
+  authorization: Authorization

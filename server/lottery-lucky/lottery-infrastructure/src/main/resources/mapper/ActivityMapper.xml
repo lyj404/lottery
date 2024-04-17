@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyj.lotterinfrastructure.gateway.impl.mapper.ActivityMapper">
+
+    <resultMap id="BaseResultMap" type="com.lyj.lotterinfrastructure.gateway.impl.dataobject.ActivityDB">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="activityName" column="activity_name" jdbcType="VARCHAR"/>
+        <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+        <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+        <result property="activityDescription" column="activity_description" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,activity_name,start_time,
+        end_time,activity_description,create_time,
+        update_time
+    </sql>
+
+    <select id="page" resultType="com.lyj.lotterinfrastructure.gateway.impl.dataobject.ActivityDB">
+        select
+        <include refid="Base_Column_List"/>
+        from activity a
+        <where>
+            <if test="query.id != null">
+                and a.id = #{query.id}
+            </if>
+            <if test="query.activityName != null and query.activityName != ''">
+                and a.activity_name like concat('%', #{query.activityName}, '%')
+            </if>
+            <if test="query.startTime != null">
+                and a.start_time <![CDATA[ <= ]]> #{query.startTime}
+            </if>
+            <if test="query.endTime != null">
+                and a.end_time <![CDATA[ >= ]]> #{query.endTime}
+            </if>
+        </where>
+    </select>
+</mapper>

@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: lottery-wallet
+
+#端口号
+server:
+  port: 7218

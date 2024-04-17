@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.lyj</groupId>
+        <artifactId>server</artifactId>
+        <version>v0.0.1</version>
+    </parent>
+
+    <artifactId>lottery-lucky</artifactId>
+    <version>v0.0.1</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>lottery-adapter</module>
+        <module>lottery-client</module>
+        <module>lottery-app</module>
+        <module>lottery-domain</module>
+        <module>lottery-infrastructure</module>
+        <module>start</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--项目模块-->
+            <dependency>
+                <groupId>com.lyj</groupId>
+                <artifactId>lottery-adapter</artifactId>
+                <version>${lottery.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lyj</groupId>
+                <artifactId>lottery-app</artifactId>
+                <version>${lottery.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lyj</groupId>
+                <artifactId>lottery-client</artifactId>
+                <version>${lottery.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lyj</groupId>
+                <artifactId>lottery-domain</artifactId>
+                <version>${lottery.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lyj</groupId>
+                <artifactId>lottery-infrastructure</artifactId>
+                <version>${lottery.version}</version>
+            </dependency>
+
+            <!--COLA-->
+            <dependency>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-components-bom</artifactId>
+                <version>${cola.components.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
